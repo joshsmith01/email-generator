@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.2",
     "foundation-sites": "^6.4.4-rc1",
     "fs-extra": "^5.0.0",
     "node-sass-chokidar": "0.0.3",
@@ -16,9 +18,14 @@
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
+    "server": "nodemon server.js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+
+  "devDependencies": {
+    "nodemon": "^1.14.11"
   }
 }
