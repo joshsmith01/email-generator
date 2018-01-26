@@ -15,7 +15,6 @@ app.use(function(req, res, next) {
 });
 
 app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/article', function(req, res) {
   if (!req.body) return res.sendStatus(400);
