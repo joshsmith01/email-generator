@@ -4,6 +4,7 @@ import './index.css';
 class AddArticleForm extends Component {
     constructor() {
         super();
+        // TODO: Try to get rid of the need to set state on this component. Only use the App state. There will be ordering of the array and other items to contend with. Plus, I'm submitting the state of the application not of the one component. -JMS
         this.state = {
             articles: []
         }
@@ -31,21 +32,6 @@ class AddArticleForm extends Component {
         this.setState({articles: item});
     }
 
-    submitFullForm(event, res) {
-        event.preventDefault();
-        fetch('http://localhost:5000/article', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                'firstParam': 'yourValue',
-                'secondParam': 'yourOtherValue',
-            })
-        }).then(console.log('hi from submitFullForm'))
-    }
-
     render () {
         return (
             <div className="grid-container">
@@ -62,7 +48,7 @@ class AddArticleForm extends Component {
                         </div>
                     )
                 })}
-                <button className="button" type="submit">Submit Entire Form</button>
+
                 </form>
             </div>
         )

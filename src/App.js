@@ -11,21 +11,30 @@ class App extends Component {
     this.state = {
       articles: {},
     };
-    // destination.txt will be created or overwritten by default.
-    // fs.copyFile('myfile.js', 'tmp/myfile.js', (err) => {
-    //     if (err) throw err;
-    //     console.log('source.txt was copied to tmp/myfile.js');
-    // });
   }
 
   addArticle(article, index) {
     // update state
     const articles = { ...this.state.articles };
     // add in new article
+      // Only React used the index. I want this back in an array. -JMS
     articles[`article-${index}`] = article;
     // set state
     this.setState({ articles });
   }
+
+    submitFullForm(event, res) {
+    // See what the state is in the console just before fetching -JMS
+        console.log(this.state);
+        fetch('http://localhost:5000/article', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(this.state)
+        }).then(console.log('hi from submitFullForm'))
+    }
 
   render() {
     return (
@@ -37,6 +46,7 @@ class App extends Component {
         <section className="small-12 cell grid-padding-x">
           <h2>AddArticleForm</h2>
           <AddArticleForm addArticle={this.addArticle} />
+            <button className="button" type="submit" onClick={() => this.submitFullForm()}>Submit Entire Form</button>
         </section>
         <Footer />
       </div>
