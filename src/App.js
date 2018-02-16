@@ -18,7 +18,7 @@ class App extends Component {
     const articles = { ...this.state.articles };
     // add in new article
       // Only React used the index. I want this back in an array. -JMS
-    articles[`article-${index}`] = article;
+    articles[`article${index}`] = article;
     // set state
     this.setState({ articles });
   }
