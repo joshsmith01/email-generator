@@ -10,31 +10,51 @@ import Footer from './Footer';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {articles: []};
+        this.state = {
+            articles: []
+        };
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     createUI() {
+
         return this.state.articles.map((el, i) =>
             <div key={i}>
-                <input ref={(input) => this.title = input} type="text" value={el || ''} onChange={this.handleChange.bind(this, i)} placeholder="Title"/>
-                <input ref={(input) => this.subtitle = input} type="text" value={el || ''} onChange={this.handleChange.bind(this, i)} placeholder="Subtitle"/>
-                <input ref={(input) => this.description = input} type="text" value={el || ''} onChange={this.handleChange.bind(this, i)} placeholder="Description"/>
-                <input ref={(input) => this.image = input} type="text" value={el || ''} onChange={this.handleChange.bind(this, i)} placeholder="Image"/>
+                <input id={'title-' + i } ref={(input) => this.title = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Title"/>
+                <input id={'subtitle-' + i } ref={(input) => this.subtitle = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Subtitle"/>
+                <input id={'description-' + i } ref={(input) => this.description = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Description"/>
+                <input id={'image-' + i } ref={(input) => this.image = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Image"/>
                 <input className='button alert' type='button' value='Remove Article' onClick={this.removeClick.bind(this, i)}/>
             </div>
         )
     }
 
     handleChange(i, event) {
+        console.log(event.target.dataset.parentid);
+        const parentid = event.target.dataset.parentid;
+        const input = {[event.target.id]: event.target.value};
+        const id = event.target.id;
+        const value = event.target.value;
+
+
         let articles = [...this.state.articles];
-        articles[i] = event.target.value;
+
+
+        // TODO: Add these to the existing object, don't just replace one property for another. -JMS
+        articles[i] = {
+            [id]: value
+        };
+
+
         this.setState({articles});
+
 
     }
 
     addClick() {
         this.setState(prevState => ({articles: [...prevState.articles, '']}))
+        // this.setState({article: '' })
     }
 
     removeClick(i) {
