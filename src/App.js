@@ -21,40 +21,33 @@ class App extends Component {
 
         return this.state.articles.map((el, i) =>
             <div key={i}>
-                <input id={'title-' + i } ref={(input) => this.title = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Title"/>
-                <input id={'subtitle-' + i } ref={(input) => this.subtitle = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Subtitle"/>
-                <input id={'description-' + i } ref={(input) => this.description = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Description"/>
-                <input id={'image-' + i } ref={(input) => this.image = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Image"/>
+                <input id={'title'  } ref={(input) => this.title = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Title"/>
+                <input id={'subtitle' } ref={(input) => this.subtitle = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Subtitle"/>
+                <input id={'description' } ref={(input) => this.description = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Description"/>
+                <input id={'image' } ref={(input) => this.image = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Image"/>
                 <input className='button alert' type='button' value='Remove Article' onClick={this.removeClick.bind(this, i)}/>
             </div>
         )
     }
 
     handleChange(i, event) {
-        console.log(event.target.dataset.parentid);
-        const parentid = event.target.dataset.parentid;
-        const input = {[event.target.id]: event.target.value};
         const id = event.target.id;
         const value = event.target.value;
-
-
         let articles = [...this.state.articles];
+        // Get the new value that is currently in the form.
+        let newVal = {[id]: value};
+        // Take a copy of the articles object in the current state
+        let articlesCopy = articles[i];
 
 
-        // TODO: Add these to the existing object, don't just replace one property for another. -JMS
-        articles[i] = {
-            [id]: value
-        };
-
-
+        // Spread the the new value into the old value.
+        articles[i] = {...articlesCopy, ...newVal};
+        // Set the state again
         this.setState({articles});
-
-
     }
 
     addClick() {
         this.setState(prevState => ({articles: [...prevState.articles, '']}))
-        // this.setState({article: '' })
     }
 
     removeClick(i) {

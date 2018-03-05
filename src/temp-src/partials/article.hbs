@@ -1,8 +1,7 @@
 {{#each articles}}
-    <h1>{{title}}</h1>
-    <h2>{{subtitle}}</h2>
-    <p>{{description}}</p>
-    <img src="{{image}}" alt="">
-    <p>Articles dot this articles.this: {{this}}</p>
+    <h1>{{this.title}}</h1>
+    <h2>{{this.subtitle}}</h2>
+    <p>{{this.description}}</p>
+    <img src="{{this.image}}" alt="">
     <br>
 {{/each}}

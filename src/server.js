@@ -61,7 +61,7 @@ app.post('/article', function (req, res) {
 
         let data = {
             "count": arrCount,
-            articles: arr
+            "articles": arr
         };
         let result = template(data);
 
