@@ -14,9 +14,9 @@ class AddArticleForm extends Component {
         event.preventDefault();
         const article = {
             title: this.title.value,
-            subtitle: this.subtitle.value,
-            description: this.description.value,
-            image: this.image.value,
+            copy: this.copy.value,
+            articleUrl: this.articleUrl.value,
+            imageUrl: this.imageUrl.value,
         };
         console.log(article);
         this.props.addArticle(article, index);
@@ -25,10 +25,10 @@ class AddArticleForm extends Component {
     addArticleForm() {
         const item = this.state.articles;
         const title = '';
-        const subtitle = '';
-        const description = '';
-        const image = '';
-        item.push({title, subtitle, description, image});
+        const copy = '';
+        const articleUrl = '';
+        const imageUrl = '';
+        item.push({title, copy, articleUrl, imageUrl});
         this.setState({articles: item});
     }
 
@@ -40,10 +40,10 @@ class AddArticleForm extends Component {
                 {this.state.articles.map((item, index) => {
                     return (
                         <div className="v" key={index} >
-                            <input ref={(input) => this.title = input} type="text" placeholder="Title"/>
-                            <input ref={(input) => this.subtitle = input} type="text" placeholder="Subtitle"/>
-                            <input ref={(input) => this.description = input} type="text" placeholder="Description"/>
-                            <input ref={(input) => this.image = input} type="text" placeholder="Image"/>
+                            <input ref={(input) => this.title = input} type="text" placeholder="Headline"/>
+                            <input ref={(input) => this.copy = input} type="text" placeholder="Copy"/>
+                            <input ref={(input) => this.articleUrl = input} type="text" placeholder="Article URL"/>
+                            <input ref={(input) => this.imageUrl = input} type="text" placeholder="Image URL"/>
                             <button className="button" type="" onClick={(e) => this.createArticle(e, index)}>Save Form</button>
                         </div>
                     )

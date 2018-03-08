@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './dice_logo.svg';
 import './App.css';
 import Footer from './Footer';
+import Analytics from "./Analytics";
 // import AddArticleForm from './AddArticleForm';
 
 // Use this. It's better. -JMS
@@ -11,10 +12,12 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            articles: []
+            articles: [],
+            analytics: {}
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleAnalyticsChange = this.handleAnalyticsChange.bind(this);
     }
 
     createUI() {
@@ -22,9 +25,9 @@ class App extends Component {
         return this.state.articles.map((el, i) =>
             <div key={i}>
                 <input id={'title'  } ref={(input) => this.title = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Title"/>
-                <input id={'subtitle' } ref={(input) => this.subtitle = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Subtitle"/>
-                <input id={'description' } ref={(input) => this.description = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Description"/>
-                <input id={'image' } ref={(input) => this.image = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Image"/>
+                <input id={'copy' } ref={(input) => this.copy = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Copy"/>
+                <input id={'articleUrl' } ref={(input) => this.articleUrl = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Article URL"/>
+                <input id={'imageUrl' } ref={(input) => this.imageUrl = input} data-parentid={i} type="text"  onChange={this.handleChange.bind(this, i)} placeholder="Image URL"/>
                 <input className='button alert' type='button' value='Remove Article' onClick={this.removeClick.bind(this, i)}/>
             </div>
         )
@@ -38,13 +41,23 @@ class App extends Component {
         let newVal = {[id]: value};
         // Take a copy of the articles object in the current state
         let articlesCopy = articles[i];
-
-
         // Spread the the new value into the old value.
         articles[i] = {...articlesCopy, ...newVal};
         // Set the state again
         this.setState({articles});
     }
+
+    handleAnalyticsChange(event) {
+        const id = event.target.id;
+        const value = event.target.value;
+        let analytics = this.state.analytics;
+        // Get the new value that is currently in the form.
+        let newVal = {[id]: value};
+
+        // Set the state again
+        this.setState({analytics: {...analytics,  ...newVal}});
+    }
+
 
     addClick() {
         this.setState(prevState => ({articles: [...prevState.articles, '']}))
@@ -71,7 +84,6 @@ class App extends Component {
     // update state
     const articles = { ...this.state.articles };
     // add in new article
-      // Only React used the index. I want this back in an array. -JMS
     articles[`article${index}`] = article;
     // set state
     this.setState({ articles });
@@ -99,6 +111,7 @@ class App extends Component {
         </header>
         <section className="small-12 cell grid-padding-x">
           <h2>AddArticleForm</h2>
+            <Analytics handleTheChange={this.handleAnalyticsChange}/>
             <form onSubmit={this.handleSubmit}>
                 <div className="grid-container">
                 {this.createUI()}

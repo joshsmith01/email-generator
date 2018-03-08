@@ -25,6 +25,7 @@ app.use(function (req, res, next) {
 });
 app.post('/article', function (req, res) {
         const articles = req.body.articles;
+        const analytics = req.body.analytics;
 
 
         // Register all partials in the directory
