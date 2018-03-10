@@ -25,7 +25,7 @@ app.use(function (req, res, next) {
 });
 app.post('/article', function (req, res) {
         const articles = req.body.articles;
-        const analytics = req.body.analytics;
+        const meta = req.body.meta;
 
 
         // Register all partials in the directory
@@ -51,6 +51,7 @@ app.post('/article', function (req, res) {
         // Async with callbacks:
 
         console.log('POSTed State: ' + JSON.stringify(articles));
+        console.log('POSTed meta: ' + JSON.stringify(meta));
 
         let source = fs.readFileSync("src/temp-src/index.html", 'utf8', (err, data) => {
             if (err) throw err;
@@ -62,7 +63,9 @@ app.post('/article', function (req, res) {
 
         let data = {
             "count": arrCount,
-            "articles": arr
+            "articles": arr,
+            "meta": meta,
+
         };
         let result = template(data);
 

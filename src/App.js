@@ -3,6 +3,9 @@ import logo from './dice_logo.svg';
 import './App.css';
 import Footer from './Footer';
 import Analytics from "./Analytics";
+import EmailMetaData from "./EmailMetaData";
+import BannerAd from "./BannerAd";
+import ImageData from "./ImageData";
 // import AddArticleForm from './AddArticleForm';
 
 // Use this. It's better. -JMS
@@ -13,7 +16,16 @@ class App extends Component {
         super(props);
         this.state = {
             articles: [],
-            analytics: {}
+            meta: {
+                BannerAdDestUrl: "https://www.dice.com/utilities/marketvalue/?CMPID=EM_RE_PD_JS_AV_DA_CYHI_",
+                BannerAdImageUrl: "http://marketing.dice.com/images/DICEHACKheader_600X100.gif",
+                CdnUrl: "https://2e8ram2s1li74atce18qz5y1-wpengine.netdna-ssl.com/",
+                PreferredImageSize: "189x116",
+                SsbTrackingCode: "CMPID=EM_RE_UP_JS_AD_DA_SSB",
+                TrackingCode: "CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor",
+                publicationDate: "",
+                subjectLine: "",
+            },
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,12 +62,12 @@ class App extends Component {
     handleAnalyticsChange(event) {
         const id = event.target.id;
         const value = event.target.value;
-        let analytics = this.state.analytics;
+        let meta = this.state.meta;
         // Get the new value that is currently in the form.
         let newVal = {[id]: value};
 
         // Set the state again
-        this.setState({analytics: {...analytics,  ...newVal}});
+        this.setState({meta: {...meta,  ...newVal}});
     }
 
 
@@ -111,7 +123,10 @@ class App extends Component {
         </header>
         <section className="small-12 cell grid-padding-x">
           <h2>AddArticleForm</h2>
-            <Analytics handleTheChange={this.handleAnalyticsChange}/>
+            <Analytics {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
+            <BannerAd {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
+            <ImageData {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
+            <EmailMetaData {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
             <form onSubmit={this.handleSubmit}>
                 <div className="grid-container">
                 {this.createUI()}
