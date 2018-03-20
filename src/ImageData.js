@@ -12,8 +12,8 @@ class ImageData extends Component {
                 <h2>Image Data</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="grid-container">
-                        <input id={'CdnUrl'} type="text" placeholder="URL for CDN" value={this.props.CdnUrl}/>
-                        <input id={'PreferredImageSize'} type="text" placeholder="Height x Width of Image" value={this.props.PreferredImageSize}/>
+                        <input id={'CdnUrl'} type="text" placeholder="URL for CDN" defaultValue={this.props.CdnUrl}/>
+                        <input id={'PreferredImageSize'} type="text" placeholder="Height x Width of Image" defaultValue={this.props.PreferredImageSize}/>
                     </div>
                 </form>
             </div>

@@ -53,7 +53,7 @@ app.post('/article', function (req, res) {
         console.log('POSTed State: ' + JSON.stringify(articles));
         console.log('POSTed meta: ' + JSON.stringify(meta));
 
-        let source = fs.readFileSync("src/temp-src/index.html", 'utf8', (err, data) => {
+        let source = fs.readFileSync("src/temp-src/plain.hbs", 'utf8', (err, data) => {
             if (err) throw err;
             return data;
         });

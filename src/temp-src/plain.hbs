@@ -1,0 +1,1161 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dice</title>
+
+    <style type="text/css">
+
+        @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,700italic);
+
+        * {
+
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            text-size-adjust: none;
+
+            -webkit-text-size-adjust: none;
+
+            -webkit-text-resize: 100%;
+
+            text-resize: 100%;
+        }
+
+        /* client specific styles
+        ____________________________________*/
+        #outlook a {
+            padding: 0;
+        }
+
+        /* Force Outlook 2007 and up to provide a "view in browser" message. */
+        table {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        /* Remove spacing between tables in Outlook 2007 and up. */
+        .ReadMsgBody {
+            width: 100%;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+        /* Force Outlook.com to display emails at full width. */
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+            line-height: 100%;
+        }
+
+        /* Force Outlook.com to display line heights normally. */
+        p, a, li, td, blockquote {
+            mso-line-height-rule: exactly;
+        }
+
+        /* Force Outlook to render line heights as they're originally set. */
+        a[href^="tel"], a[href^="sms"] {
+            color: inherit;
+            cursor: default;
+            text-decoration: none;
+        }
+
+        /* Force mobile devices to inherit declared link styles. */
+        p, a, li, td, body, table, blockquote {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+        a img {
+            border: none;
+        }
+
+        img {
+            outline: none;
+            text-decoration: none;
+            border: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* Force IE to smoothly render resized images. */
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        body {
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            table[class="wrapper"] {
+                min-width: 320px !important;
+            }
+
+            table[class="mobileflex"] {
+                width: 100% !important;
+                align: center !important;
+            }
+
+            table[class="MobileTOC"] {
+                width: 100% !important;
+                align: center !important;
+            }
+
+            table[class="mobileflexsecondary"] {
+                width: 95% !important;
+                align: center !important;
+            }
+
+            *[class="mob-hide"] {
+                display: none !important
+            }
+
+            td[class="img-resize"]
+            img {
+                width: 90% !important;
+            }
+
+            td[class="mobilepadding"] {
+                padding-left: 40px !important;
+                padding-right: 40px !important;
+            }
+
+            table[class="mobilecenter"] {
+                width: 100% !important;
+                align: center !important;
+                text-align: center !important;
+
+            }
+
+            td[class="zerosidepad"] {
+                padding: auto 5px auto !important;
+            }
+
+            td[class="jobsadjustpadding"] {
+                padding: 20px 20px 20px !important;
+            }
+
+            table[class="advisormobilestory"] {
+                width: 100% !important;
+                align: center !important;
+                text-align: left !important;
+
+            }
+
+            td[class="advisormobileimage"]
+            img {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            td[class="mobilejobslot"] {
+                padding-left: 5px !important;
+                padding-right: 5px !important;
+            }
+
+            td[class="mobilejobslot"]
+            img {
+                width: 100% !important;
+            }
+
+            td[class="mobilejobslotpadding"] {
+                padding-left: 5px !important;
+                padding-right: 5px !important;
+            }
+
+            td[class="adjustpadding"] {
+                padding: 5px 40px 10px !important;
+            }
+
+            td[class="zeropadding"] {
+                padding: 0px !important;
+            }
+
+            td[class="centertext"] {
+                text-align: center !important;
+            }
+
+            td[class="advisorstorypadding"] {
+                padding: 10px 20px 10px !important;
+            }
+
+            td[class="removetagline"] {
+                display: none;
+                width: 0px !important;
+
+            }
+
+            table[class="mobilecenter"]
+            img {
+                display: inline !important;
+            }
+
+            td[class="renderadjustment"]
+            img {
+                width: 100% !important;
+            }
+
+            img[class="mobileadvisorimg"] {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+        }
+
+        @media only screen and (max-width: 350px) {
+
+            table[class="hideprofile"] {
+                display: none !important;
+
+            }
+
+        }
+
+    </style>
+
+    <!--[if mso]>
+    <style type="text/css">
+        body {
+            font-fami ly: Arial, Helvetica, sans-serif ! importan t;
+        }
+    </style>
+    <![endif]-->
+
+
+</head>
+
+<body bgcolor="#fcfcfc"
+      style="margin:0; padding:0; font:16px/26px 'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif; color:#333333">
+<!--Outside Wrapper-->
+<table bgcolor="#fcfcfc" align="center" class="wrapper" width="100%" height="100%" cellpadding="0" cellspacing="0"
+       border="0"
+       style="table-layout:fixed; margin:0 auto; border-collapse:collapse; padding:0; font:16px/26px 'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif; color:#333333">
+
+    <!--Preview Text-->
+
+    <tr>
+        <td style="display:none;font-size:1px;color:#444444;line-height:1px; max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+            {{ meta.subjectLine }}
+        </td>
+    </tr>
+
+    <!--End Preview Text-->
+
+
+    <tr>
+        <td>
+
+
+            <!--Full Length Hero-->
+            <table bgcolor="#444444" cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                    <td style="background-color:#333333;">
+                        <table class="mobileflex" width="600" align="center" cellpadding="0" cellspacing="0" border="0"
+                               style="margin:0 auto !important;">
+                            <tr>
+                                <td width="100%" valign="middle"
+                                    style="text-align:right; color:#999999; font-size:12px; vertical-align:middle !important; padding:10px 20px 10px">
+
+                                    <table height="40" align="left" cellpadding="0" cellspacing="0" border="0">
+
+                                        <tr>
+
+                                            <td>
+                                                <a href="http://www.dice.com/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                   target="_blank"> <img
+                                                        src="http://marketing.dice.com/images/dice_logo_ret.png"
+                                                        width="75" alt="Dice"
+                                                        style="-ms-interpolation-mode: bicubic; display: block; outline: none; border:none; text-decoration: none; width: 75px"></a>
+                                            </td>
+
+                                            <td width="10" height="40"></td>
+
+                                            <td valign="middle" style="color:#999; font-size:12px">
+
+                                                Advisor Newsletter
+
+                                            </td>
+
+                                        </tr>
+
+
+                                    </table>
+
+                                    <table align="right" height="40" cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td height="40" valign="middle"
+                                                style="text-align:right; font-size:12px; color:#999999">
+                                                <a href="${form(campaign.name,{'usedb':true})}"
+                                                   style="text-decoration:none; color:#999999">View Online</a>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+
+                    </td>
+                </tr>
+
+
+            </table>
+            <!--End Full Length Hero-->
+
+
+            <!--Spacer-->
+            <table align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
+                </tr>
+            </table>
+            <!--Close Spacer-->
+
+
+            <table bgcolor="#FFFFFF" class="mobileflexsecondary" width="600" align="center" cellpadding="0"
+                   cellspacing="0" border="0" style="margin:0 auto !important; border-bottom: 1px solid #dddddd;">
+                <tr>
+                    <td bgcolor="#EEEEEE" style="padding:5px 20px 5px; ">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td style="padding:0px 10px 0px;  font-size:14px; line-height:20px; font-weight:bold; color:#333333; text-align:center;">
+                                    QUICK LINKS -
+                                    {{ meta.publicationDate }}
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding:20px; text-align:left;">
+
+                        <table class="MobileTOC" cellpadding="0" cellspacing="0" border="0" align="left" width="45%">
+                            <tr>
+                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
+                                                                                                              "https://insights.dice.com/2018/03/05/8-early-career-lessons-cios-mistakes-avoid/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                                                                      RILT="TOC1"
+                                                                                                      target="_blank"
+                                                                                                      style="text-decoration:none; color:#006699;">
+                                    8 Career Lessons from CIOs (and Mistakes to Avoid)
+                                </a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
+                                                                                                              "https://insights.dice.com/2018/03/01/self-employment-spike-hard-study/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                                                                      RILT="TOC2"
+                                                                                                      target="_blank"
+                                                                                                      style="text-decoration:none; color:#006699;">
+                                    Self-Employment is About to Spike Hard: Study
+                                </a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
+                                                                                                              "https://insights.dice.com/2018/03/06/5-worst-programming-languages-learn-2018/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                                                                      RILT="TOC3"
+                                                                                                      target="_blank"
+                                                                                                      style="text-decoration:none; color:#006699;">
+                                    5 Worst Programming Languages to Learn in 2018
+                                </a></td>
+                            </tr>
+
+                        </table>
+
+
+                        <table class="MobileTOC" cellpadding="0" cellspacing="0" border="0" align="right" width="45%">
+                            <tr>
+                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
+                                                                                                              "https://insights.dice.com/2018/03/01/hackterms-urban-dictionary-tech-pros/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                                                                      RILT="TOC4"
+                                                                                                      target="_blank"
+                                                                                                      style="text-decoration:none; color:#006699;">
+                                    Hackterms is Like Urban Dictionary for Tech Pros, and It's Awesome
+                                </a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
+                                                                                                              "https://insights.dice.com/2018/03/05/5-ways-catch-handle-errors-desktop-web-apps/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                                                                      RILT="TOC5"
+                                                                                                      target="_blank"
+                                                                                                      style="text-decoration:none; color:#006699;">
+                                    5 Ways to Catch and Handle Errors in Desktop and Web Apps
+                                </a></td>
+                            </tr>
+                            <tr>
+                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
+                                                                                                              "https://insights.dice.com/2018/03/05/google-offering-crash-course-in-machine-learning/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                                                                      RILT="TOC6"
+                                                                                                      target="_blank"
+                                                                                                      style="text-decoration:none; color:#006699;">
+                                    Google Offering Crash Course in Machine Learning
+                                </a></td>
+                            </tr>
+
+                        </table>
+
+                    </td>
+                </tr>
+
+            </table>
+
+
+            <!--Spacer-->
+            <table align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
+                </tr>
+            </table>
+            <!--Close Spacer-->
+
+            <!--Ad-->
+            <table class="mobileflexsecondary" width="600" align="center" cellpadding="0" cellspacing="0" border="0"
+                   style="margin:0 auto !important; ">
+                <tr>
+                    <td class="advisormobileimage">
+                        <a href="{{ meta.BannerAdDestUrl }}">
+                            <img src="{{ meta.BannerAdImageUrl }}" width="600" style="display:block;" alt="advisorad">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <!--Close Ad-->
+
+
+            <!--Spacer-->
+            <table align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
+                </tr>
+            </table>
+            <!--Close Spacer-->
+
+
+            <table bgcolor="#FFFFFF" class="mobileflexsecondary" width="600" align="center" cellpadding="0"
+                   cellspacing="0" border="0" style="margin:0 auto !important; border-bottom: 1px solid #dddddd;">
+                <tr>
+                    <td bgcolor="#EEEEEE" style="padding:5px 20px 5px; ">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td style="padding:0px 10px 0px;  font-size:14px; line-height:20px; font-weight:bold; color:#333333; text-align:center;">
+                                    DICE INSIGHTS
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="zeropadding" style="padding:10px">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+                            {{#each articles}}
+                                <!--Headline n-->
+                                <tr>
+                                    <td class="zeropadding" style="padding:10px;  border-bottom: 1px solid #dddddd;">
+
+
+                                        <table class="advisormobilestory" align="left" cellpadding="0" cellspacing="0"
+                                               border="0" width="150">
+                                            <tr>
+                                                <td height="100%" valign="middle" class="advisormobileimage"
+                                                    style="height:100%; vertical-align:middle;"><a
+                                                        href="{{ this.articleUrl }}?{{ ../meta.TrackingCode }}"
+                                                        RILT="Image1" target="_blank"
+                                                        style="text-decoration:none; color:#333333;">
+                                                    <img src="{{this.imageUrl}}-{{ ../meta.PreferredImageSize }}"
+                                                         width="150" alt="thumb1"></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+
+                                        <table class="advisormobilestory" align="right" cellpadding="0" cellspacing="0"
+                                               border="0" width="375">
+                                            <tr>
+                                                <td class="advisorstorypadding" style="padding:0px">
+
+
+                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+
+
+                                                        <tr>
+                                                            <td style="font-size:18px; line-height:26px; color:#333333; padding:5px 0px 10px;">
+                                                                <a href="{{ this.articleUrl }}?{{ ../meta.TrackingCode }}"
+                                                                   RILT="Headline1" target="_blank"
+                                                                   style="text-decoration:none; color:#333333;">
+                                                                    <strong>
+                                                                        {{this.title}}
+                                                                    </strong>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="font-size:12px; line-height:18px; color:#555555">
+                                                                <a href="{{ this.articleUrl }}?{{ ../meta.TrackingCode }}"
+                                                                   RILT="Copy1" target="_blank"
+                                                                   style="text-decoration:none; color:#333333;">
+                                                                    {{this.copy}}
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+
+
+                                                        <tr>
+                                                            <td style="padding:20px 0px 20px 0px">
+
+
+                                                                <table width="100" align="right" cellspacing="0"
+                                                                       cellpadding="0">
+                                                                    <tr>
+                                                                        <td bgcolor="#9F1316"
+                                                                            style="-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; color: #ffffff; display: block; text-align:center; height:30px; width:100px">
+                                                                            <a href="{{ this.articleUrl }}?{{ ../meta.TrackingCode }}"
+                                                                               RILT="Button1" target="_blank"
+                                                                               style="font-size:12px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; line-height:30px; width:100%; display:inline-block">
+                                                                                <span style="color: #FFFFFF">Read More</span>
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+
+                                                                <table width="100" align="left" cellspacing="0"
+                                                                       cellpadding="0"
+                                                                       style="margin:0 auto !important;">
+                                                                    <tr>
+
+                                                                        <td style="padding:0px 5px">
+                                                                            <a href="http://www.facebook.com/sharer/sharer.php?u={{ this.articleUrl }}?{{ ../meta.SsbTrackingCode }}&title={{ this.articleTitle }}"
+                                                                               target="_blank">
+                                                                                <img src="http://marketing.dice.com/images/Facebookicon_atv2.gif"
+                                                                                     width="30" alt="Share on FB">
+                                                                            </a>
+                                                                        </td>
+                                                                        <td style="padding:0px 5px">
+                                                                            <a href="http://twitter.com/intent/tweet?status={{ this.articleTitle }}+{{ this.articleUrl }}?{{ ../meta.SsbTrackingCode }}"
+                                                                               target="_blank">
+                                                                                <img src="http://marketing.dice.com/images/Twittericon_atv2.gif"
+                                                                                     width="30" alt="Share on Twitter">
+                                                                            </a>
+                                                                        </td>
+
+                                                                        <td style="padding:0px 5px">
+                                                                            <a href="http://www.linkedin.com/shareArticle?mini=true&url={{ this.articleUrl }}?{{ ../meta.SsbTrackingCode }}&title={{ this.articleTitle }}&source=http://insights.dice.com/"
+                                                                               target="_blank">
+                                                                                <img src="http://marketing.dice.com/images/linkedinicon_atv2.gif"
+                                                                                     width="30" alt="Share on LinkedIn">
+                                                                            </a>
+                                                                        </td>
+
+                                                                        <td style="padding:0px 5px">
+                                                                            <a href="http://www.reddit.com/submit?url={{ this.articleUrl }}?{{ ../meta.SsbTrackingCode }}&title={{ this.articleTitle }}"
+                                                                               target="_blank">
+                                                                                <img src="http://marketing.dice.com/images/redditicon_atv2.gif"
+                                                                                     width="30" alt="Share on Reddit">
+                                                                            </a>
+                                                                        </td>
+
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!--End Headline n -->
+                            {{/each}}
+
+                        </table>
+                    </td>
+                </tr>
+
+
+            </table>
+
+            <!--Spacer-->
+            <table align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
+                </tr>
+            </table>
+            <!--Close Spacer-->
+
+            <!--Text Advertisment-->
+            <table bgcolor="#FFFFFF" class="mobileflexsecondary" width="600" align="center" cellpadding="0"
+                   cellspacing="0" border="0" style="margin:0 auto !important; border-bottom: 1px solid #dddddd;">
+                <tr>
+                    <td class="zerosidepad" style="padding:10px 20px 20px;">
+                        <table class="advisormobilestory" align="right" cellpadding="0" cellspacing="0" border="0"
+                               width="100%">
+                            <tr>
+                                <td style="padding:0px">
+
+
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                        <tr>
+                                            <td style="font:10px/14px 'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif; color:#999999; text-align:right;">
+                                                ADVERTISEMENT
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="zerosidepad"
+                                                style="font-size:18px; line-height:26px; color:#006699; padding:0px 20px 10px;">
+                                                <a href=
+                                                           "https://www.worldcampus.psu.edu/request-information-program?ProgramID=MSME&utm_source=dice&utm_medium=email&utm_campaign=MSME+17-18&utm_content=enewssp18&cid=ML31212"
+                                                   style="color:#006699; text-decoration:none;" target="_blank">
+                                                    Penn State's Online Master's in Mechanical Engineering
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="zerosidepad"
+                                                style="font-size:12px; line-height:22px; color:#555555; padding:0px 20px 0px;">
+                                                <i>
+                                                    Penn State offers a top-ranked graduate mechanical engineering
+                                                    program in a convenient, flexible format so you can stand out with a
+                                                    respected credential. The curriculum offers courses in thermal
+                                                    systems and mechanical systems so you can tailor the degree to your
+                                                    specific interests.
+                                                </i> <a href=
+                                                                "https://www.worldcampus.psu.edu/request-information-program?ProgramID=MSME&utm_source=dice&utm_medium=email&utm_campaign=MSME+17-18&utm_content=enewssp18&cid=ML31212"
+                                                        target="_blank"
+                                                        style="text-decoration:none; color:#006699;"><strong>Learn
+                                                More.</strong></a>
+
+                                            </td>
+                                        </tr>
+
+
+                                    </table>
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+                    </td>
+                </tr>
+
+
+            </table>
+            <!--End Text Advertisement-->
+
+            <!--Spacer-->
+            <table align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
+                </tr>
+            </table>
+            <!--Close Spacer-->
+            <table bgcolor="#FFFFFF" class="mobileflexsecondary" width="600" align="center" cellpadding="0"
+                   cellspacing="0" border="0" style="margin:0 auto !important; border-bottom: 1px solid #dddddd;">
+                <tr>
+                    <td bgcolor="#EEEEEE" style="padding:5px 20px 5px; ">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td style="padding:0px 10px 0px;  font-size:14px; line-height:20px; font-weight:bold; color:#333333; text-align:center;">
+                                    JOBS YOU MAY BE INTERESTED IN
+
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="jobsadjustpadding"
+                        style="text-align:left; padding:20px 40px 20px;font:14px/24px 'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue', Helvetica, Arial, sans-serif; color:#333333">
+
+
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+                            <tr>
+                                <td>
+                                    <a href="http://www.movable-ink-7146.com/p/rp/880bf8a8454a878d/url?mi_job_title=${CONTACTS_LIST.DESIRED_POSITION}&mi_zip=${CONTACTS_LIST.POSTAL_CODE_}&mi_t=${CONTACTS_LIST.EMAIL_ADDRESS_}&CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                       style="display: block;" class="mobileadvisorimg"><img
+                                            alt="Display images to show real-time content" border="0"
+                                            src="http://www.movable-ink-7146.com/p/rp/880bf8a8454a878d.png?mi_job_title=${CONTACTS_LIST.DESIRED_POSITION}&mi_zip=${CONTACTS_LIST.POSTAL_CODE_}&mi_t=${CONTACTS_LIST.EMAIL_ADDRESS_}&CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                            style="border: 0; display: block; width:100%" class="mobileadvisorimg"/></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="http://www.movable-ink-7146.com/p/rp/4f331e6bce9ad2fd/url?mi_job_title=${CONTACTS_LIST.DESIRED_POSITION}&mi_zip=${CONTACTS_LIST.POSTAL_CODE_}&mi_t=${CONTACTS_LIST.EMAIL_ADDRESS_}&CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                       style="display: block;" class="mobileadvisorimg"><img
+                                            alt="Display images to show real-time content" border="0"
+                                            src="http://www.movable-ink-7146.com/p/rp/4f331e6bce9ad2fd.png?mi_job_title=${CONTACTS_LIST.DESIRED_POSITION}&mi_zip=${CONTACTS_LIST.POSTAL_CODE_}&mi_t=${CONTACTS_LIST.EMAIL_ADDRESS_}&CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                            style="border: 0; display: block ; width:100%"
+                                            class="mobileadvisorimg"/></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="http://www.movable-ink-7146.com/p/rp/ba3f811aae3407ad/url?mi_job_title=${CONTACTS_LIST.DESIRED_POSITION}&mi_zip=${CONTACTS_LIST.POSTAL_CODE_}&mi_t=${CONTACTS_LIST.EMAIL_ADDRESS_}&CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                       style="display: block;" class="mobileadvisorimg"><img
+                                            alt="Display images to show real-time content" border="0"
+                                            src="http://www.movable-ink-7146.com/p/rp/ba3f811aae3407ad.png?mi_job_title=${CONTACTS_LIST.DESIRED_POSITION}&mi_zip=${CONTACTS_LIST.POSTAL_CODE_}&mi_t=${CONTACTS_LIST.EMAIL_ADDRESS_}&CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                            style="border: 0; display: block ; width:100%"
+                                            class="mobileadvisorimg"/></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="http://www.dice.com/jobs/${CONTACTS_LIST.POSTAL_CODE_}?caller=basic&q=${CONTACTS_LIST.DESIRED_POSITION}&x=all&p=z&CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                       style="display: block;" class="mobileadvisorimg"><img
+                                            alt="Display images to show real-time content" border="0"
+                                            src="http://www.movable-ink-7146.com/p/rp/e5930900c579d006.png?mi_job_title=${CONTACTS_LIST.DESIRED_POSITION}&mi_zip=${CONTACTS_LIST.POSTAL_CODE_}&mi_t=${CONTACTS_LIST.EMAIL_ADDRESS_}&CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                            style="border: 0; display: block; width:100%" class="mobileadvisorimg"/></a>
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+
+                    </td>
+                </tr>
+
+
+            </table>
+
+
+            <!--Spacer-->
+            <table align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
+                </tr>
+            </table>
+            <!--Close Spacer-->
+            <table class="mobileflexsecondary" align="center"
+                   background="http://marketing.dice.com/images/BG_advisor_mobileappCTA.png" bgcolor="#006699"
+                   cellpadding="0" cellspacing="0" border="0" width="600" style="margin:0 auto !important;">
+                <tr>
+                    <td style="padding:20px">
+
+
+                        <table class="mobilecenter" align="center" cellpadding="0" cellspacing="0" border="0"
+                               width="100%" style="margin:0 auto !important;">
+                            <tr>
+                                <td style="font-size:20px; line-height:30px; color:#333333; color:#FFFFFF; text-align:center">
+                                    The Dice Careers App
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-size:14px; line-height:26px; color:#333333; color:#FFFFFF; padding:10px 20px 10px; text-align:center; ">
+                                    We know you're busy. Manage your career on the go with the Dice Careers App.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="text-align:center;">
+
+                                    <a target="_blank"
+                                       href="https://c00.adobe.com/d53bf41a-0d61-47b4-b7f1-6df9b46831cf/DI_EM_DA_MA_UP/g/com.dice.app.jobs"><img
+                                            src="http://marketing.dice.com/images/googleplay-badge@2x.png" width="115"
+                                            alt="googleplay" border="0"/></a>
+
+                                    <img src="http://marketing.dice.com/images/space.gif" width="10" height="1"
+                                         style="border:none">
+
+                                    <a target="_blank"
+                                       href="https://c00.adobe.com/d53bf41a-0d61-47b4-b7f1-6df9b46831cf/DI_EM_DA_MA_UP/i/794201100"><img
+                                            src="http://marketing.dice.com/images/appstore-badge@2x.png" width="115"
+                                            alt="appstore" border="0"/></a>
+
+
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+
+                    </td>
+                </tr>
+            </table>
+
+            <!--Spacer-->
+            <table align="center" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td height="20" style="font-size: 20px; line-height: 20px;">&nbsp;</td>
+                </tr>
+            </table>
+            <!--Close Spacer-->
+            <table bgcolor="#FFFFFF" class="mobileflexsecondary" width="600" align="center" cellpadding="0"
+                   cellspacing="0" border="0" style="margin:0 auto !important; border-bottom: 1px solid #dddddd;">
+                <tr>
+                    <td bgcolor="#EEEEEE" style="padding:5px 10px 5px; ">
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <tr>
+                                <td style="padding:0px 10px 0px;  font-size:14px; line-height:20px; font-weight:bold; color:#333333; text-align:center;">
+                                    READ MORE ABOUT WHAT INTERESTS YOU
+
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:left; padding:10px 0px 10px;font:14px/24px 'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif; color:#333333">
+
+
+                        <table cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                            <tr>
+                                <td style="text-align:left; padding:5px 20px 5px;">
+
+                                    <table class="MobileTOC" cellpadding="0" cellspacing="0" border="0" align="left"
+                                           width="48%">
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_workingintech.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/working-in-tech/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">WORKING IN TECH</a></td>
+
+                                                    </tr>
+
+
+                                                </table>
+
+
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_jobhunting.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/job-hunting/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">JOB HUNTING</a></td>
+                                                    </tr>
+                                                </table>
+
+
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_learningtech.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/students/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">LEARNING TECH</a></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_diversity.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/diversity/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">DIVERSITY</a></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_fun.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/fun/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">FUN</a></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+
+                                    </table>
+
+
+                                    <table class="MobileTOC" cellpadding="0" cellspacing="0" border="0" align="right"
+                                           width="48%">
+
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_programming.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/programming/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">PROGRAMMING</a></td>
+                                                    </tr>
+                                                </table>
+
+
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_ArtIntel.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/ai/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">ARTIFICIAL INTEL.</a></td>
+                                                    </tr>
+                                                </table>
+
+
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_mobile.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/mobile/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">MOBILE</a></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_cloud.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/cloud-2/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">CLOUD</a></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                            <td style="padding:5px 0px 5px;">
+                                                <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                                       style="border-bottom:solid 1px #eee;">
+                                                    <tr>
+                                                        <td style="padding:5px 5px 0px; width:30px;"><img
+                                                                src="http://marketing.dice.com/images/AD_icon_data.png"
+                                                                width="30" style="display:block;"></td>
+                                                        <td valign="middle"
+                                                            style="font-size:14px; line-height:20px;padding:5px 5px 0px; vertical-align:middle; font-weight:bold; color:#444444;">
+                                                            <a href="http://insights.dice.com/category/data/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                               style="text-decoration:none; color:#444444;"
+                                                               target="_blank">DATA</a></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" align="center">
+                            <tr>
+                                <td style="padding:10px 0px 10px">
+
+
+                                    <table align="center" width="200" cellspacing="0" cellpadding="0"
+                                           style="margin:0 auto !important;">
+                                        <tr>
+                                            <td align="center" height="35" bgcolor="#006699"
+                                                style="-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; color: #ffffff; display: block; padding:0px 5px 0px;">
+                                                <a href="http://insights.dice.com/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                                   target="_blank"
+                                                   style="font-size:14px; text-decoration: none; line-height:35px; width:100%; display:inline-block"><span
+                                                        style="color: #FFFFFF">Go to Dice Insights</span></a>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </td>
+                </tr>
+
+
+            </table>
+
+
+            <!--Footer-->
+            <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0" style="text-align:center">
+
+                <tr>
+                    <td style="padding-top:20px">
+                        <a href="https://www.youtube.com/user/BestJobsEver" target="_blank"
+                           style="color: #959595; text-decoration: underline"><img class="socialIcon"
+                                                                                   src="http://assets.dice.com/assets/stylesheets/images/emailSocialIconsYoutube.png"
+                                                                                   alt="Dice on Youtube"
+                                                                                   style="-ms-interpolation-mode: bicubic; border: none; display: inline-block;  outline: none; text-decoration: none; width: 50px"></a>
+                        <a href="https://www.facebook.com/dice" target="_blank"
+                           style="color: #959595; text-decoration: underline"><img class="socialIcon"
+                                                                                   src="http://assets.dice.com/assets/stylesheets/images/emailSocialIconsFacebook.png"
+                                                                                   alt="Dice on Facebook"
+                                                                                   style="-ms-interpolation-mode: bicubic; border: none; display: inline-block; outline: none; text-decoration: none; width: 50px"></a>
+                        <a href="https://twitter.com/Dicedotcom" target="_blank"
+                           style="color: #959595; text-decoration: underline"><img class="socialIcon"
+                                                                                   src="http://assets.dice.com/assets/stylesheets/images/emailSocialIconsTwitter.png"
+                                                                                   alt="Dice on Twitter"
+                                                                                   style="-ms-interpolation-mode: bicubic; border: none; display: inline-block;  outline: none; text-decoration: none; width: 50px"></a>
+                        <a href="https://plus.google.com/+Dice/posts" target="_blank"
+                           style="color: #959595; text-decoration: underline"><img class="socialIcon"
+                                                                                   src="http://assets.dice.com/assets/stylesheets/images/emailSocialIconsGPlus.png"
+                                                                                   alt="Dice on Google Plus"
+                                                                                   style="-ms-interpolation-mode: bicubic; border: none; display: inline-block; outline: none; text-decoration: none; width: 50px"></a>
+
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:center; font-size:12px; line-height:30px; color:#999999; padding:10px">
+
+                        Subscribed for Dice Advisor: ${CONTACTS_LIST.EMAIL_ADDRESS_} <br/><a
+                            href="http://www.dice.com/daf/servlet/DAFctrl?op=2004&email=${CONTACTS_LIST.EMAIL_ADDRESS_}&campaign=1"
+                            target="_blank" style="text-decoration:underline;color:#999;">Unsubscribe</a> | <a
+                            href="https://www.dice.com/dashboard#/settings?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                            target="_blank" style="text-decoration:underline;color:#999;">Manage your Subscriptions</a>
+                        <br/>
+
+                        Dice 225 West Santa Clara Street, San Jose, CA 95113
+
+                        <br/>
+                        Copyright &copy; 1990 - 2016 Dice. All rights reserved. Use is subject to <a
+                            href="http://www.dice.com/common/seeker/docs/terms_and_conditions.jsp" target="_blank"
+                            style="text-decoration:underline;color:#999;">Terms &amp; Conditions</a>.
+
+                    </td>
+                </tr>
+
+
+            </table>
+
+
+            <!--Close Footer-->
+
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="mob-hide">
+            <table cellpadding="0" cellspacing="0" border="0" align="center" width="600px"
+                   style="table-layout:fixed; margin:0 auto;">
+                <tr>
+                    <td cellpadding="0" cellspacing="0" border="0" style=" line-height:1px;"
+                        height="1px; min-width: 600px;">
+                        <img src="http://marketing.dice.com/images/spacer.gif" height="1" width="600"
+                             style="max-height:1px; min-height:1px; display:block; width:600px; min-width:600px;"/>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+
+
+</table>
+<!--End Outside Wrapper-->
+
+
+</body>
+</html>

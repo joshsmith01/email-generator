@@ -12,8 +12,8 @@ class Analytics extends Component {
                 <h2>Banner Ad</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div className="grid-container">
-                        <input id={'BannerAdImageUrl'} type="text" placeholder="Image URL (600x100)"  value={this.props.BannerAdImageUrl}/>
-                        <input id={'BannerAdDestUrl'} type="text" placeholder="Banner Ad Destination URL"  value={this.props.BannerAdDestUrl}/>
+                        <input id={'BannerAdImageUrl'} type="text" placeholder="Image URL (600x100)"  defaultValue={this.props.BannerAdImageUrl}/>
+                        <input id={'BannerAdDestUrl'} type="text" placeholder="Banner Ad Destination URL"  defaultValue={this.props.BannerAdDestUrl}/>
                     </div>
                 </form>
             </div>

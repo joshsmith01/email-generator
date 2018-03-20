@@ -6,6 +6,10 @@ import Analytics from "./Analytics";
 import EmailMetaData from "./EmailMetaData";
 import BannerAd from "./BannerAd";
 import ImageData from "./ImageData";
+import $ from 'jquery';
+import 'foundation-sites';
+import Article from "./Article";
+
 // import AddArticleForm from './AddArticleForm';
 
 // Use this. It's better. -JMS
@@ -28,6 +32,7 @@ class App extends Component {
             },
         };
         this.handleChange = this.handleChange.bind(this);
+        this.removeClick = this.removeClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAnalyticsChange = this.handleAnalyticsChange.bind(this);
     }
@@ -35,22 +40,11 @@ class App extends Component {
     createUI() {
 
         return this.state.articles.map((el, i) =>
-            <div key={i}>
-                <input id={'title'} ref={(input) => this.title = input} data-parentid={i} type="text"
-                       onChange={this.handleChange.bind(this, i)} placeholder="Title"/>
-                <input id={'copy'} ref={(input) => this.copy = input} data-parentid={i} type="text"
-                       onChange={this.handleChange.bind(this, i)} placeholder="Copy"/>
-                <input id={'articleUrl'} ref={(input) => this.articleUrl = input} data-parentid={i} type="text"
-                       onChange={this.handleChange.bind(this, i)} placeholder="Article URL"/>
-                <input id={'imageUrl'} ref={(input) => this.imageUrl = input} data-parentid={i} type="text"
-                       onChange={this.handleChange.bind(this, i)} placeholder="Image URL"/>
-                <input className='button alert' type='button' value='Remove Article'
-                       onClick={this.removeClick.bind(this, i)}/>
-            </div>
+            <Article key={i} index={i} handleChange={this.handleChange} removeClick={this.removeClick}/>
         )
     }
 
-    handleChange(i, event) {
+    handleChange(event, i) {
         const id = event.target.id;
         const value = event.target.value;
         let articles = [...this.state.articles];
@@ -58,6 +52,7 @@ class App extends Component {
         let newVal = {[id]: value};
         // Take a copy of the articles object in the current state
         let articlesCopy = articles[i];
+        console.log(articlesCopy);
         // Spread the the new value into the old value.
         articles[i] = {...articlesCopy, ...newVal};
         // Set the state again
@@ -81,6 +76,7 @@ class App extends Component {
     }
 
     removeClick(i) {
+        // console.log(this.state.articles);
         let articles = [...this.state.articles];
         articles.splice(i, 1);
         this.setState({articles});
@@ -97,24 +93,11 @@ class App extends Component {
         })
     }
 
-    addArticle(article, index) {
-        // update state
-        const articles = {...this.state.articles};
-        // add in new article
-        articles[`article${index}`] = article;
-        // set state
-        this.setState({articles});
-    }
 
-    submitFullForm(event, res) {
-        fetch('http://localhost:5000/article', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(this.state)
-        })
+    componentDidMount() {
+
+        $(document).foundation();
+
     }
 
     render() {
@@ -125,20 +108,36 @@ class App extends Component {
                     <h1 className="App-title">Welcome to Dice Adviser Email Generator</h1>
                 </header>
                 <section className="small-12 cell grid-padding-x">
-                    <h2>AddArticleForm</h2>
-                    <Analytics {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
-                    <BannerAd {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
-                    <ImageData {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
-                    <EmailMetaData {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="grid-container">
-                            {this.createUI()}
-                            <input className='button success' type='button' value='Add Article'
-                                   onClick={this.addClick.bind(this)}/>
-                            <br/>
-                            <input className='button' type="submit" value="Submit Form"/>
+                    <ul className="tabs" data-tabs id="example-tabs">
+                        <li className="tabs-title"><a href="#panel1" aria-selected="true">Analytics</a></li>
+                        <li className="tabs-title"><a data-tabs-target="panel2" href="#panel2">Banner Ad</a></li>
+                        <li className="tabs-title"><a data-tabs-target="panel3" href="#panel3">Image Data</a></li>
+                        <li className="tabs-title is-active"><a data-tabs-target="panel4" href="#panel4">Email Information</a>
+                        </li>
+                    </ul>
+                    <div className="tabs-content" data-tabs-content="example-tabs">
+                        <div className="tabs-panel" id="panel1">
+                            <Analytics {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
                         </div>
-                    </form>
+                        <div className="tabs-panel" id="panel2">
+                            <BannerAd {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
+                        </div>
+                        <div className="tabs-panel" id="panel3">
+                            <ImageData {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
+                        </div>
+                        <div className="tabs-panel is-active" id="panel4">
+                            <EmailMetaData {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
+                            <form onSubmit={this.handleSubmit}>
+                                <div className="grid-container">
+                                    {this.createUI()}
+                                    <input className='button success' type='button' value='Add Article'
+                                           onClick={this.addClick.bind(this)}/>
+                                    <br/>
+                                    <input className='button' type="submit" value="Submit Form"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </section>
                 <Footer/>
             </div>
