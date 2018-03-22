@@ -40,7 +40,7 @@ class App extends Component {
     createUI() {
 
         return this.state.articles.map((el, i) =>
-            <Article key={i} index={i} handleChange={this.handleChange} removeClick={this.removeClick}/>
+            <Article key={i} index={i} handleChange={this.handleChange} removeClick={this.removeClick} valueState={this.state.articles}/>
         )
     }
 
@@ -72,7 +72,12 @@ class App extends Component {
 
 
     addClick() {
-        this.setState(prevState => ({articles: [...prevState.articles, '']}))
+        this.setState(prevState => ({articles: [...prevState.articles, {
+            title:'',
+            copy: '',
+            imageUrl: '',
+            articleUrl: '',
+        }]}))
     }
 
     removeClick(i) {
