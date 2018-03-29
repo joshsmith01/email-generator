@@ -47,11 +47,16 @@ app.post('/article', function (req, res) {
         const arr = Object.keys(articles).map(key => articles[key]);
         const arrCount = arr.length;
 
+        const mid = Math.ceil(arrCount/2);
+        const quickLinks = {
+            left: arr.slice(0, mid),
+            right: arr.slice(mid)
+        };
 
         // Async with callbacks:
-
         console.log('POSTed State: ' + JSON.stringify(articles));
         console.log('POSTed meta: ' + JSON.stringify(meta));
+        console.log('POSTed Quick Links: ' + JSON.stringify(quickLinks));
 
         let source = fs.readFileSync("src/temp-src/plain.hbs", 'utf8', (err, data) => {
             if (err) throw err;
@@ -65,6 +70,7 @@ app.post('/article', function (req, res) {
             "count": arrCount,
             "articles": arr,
             "meta": meta,
+            "quickLinks": quickLinks,
 
         };
         let result = template(data);

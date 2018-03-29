@@ -335,6 +335,7 @@
                                 <td style="padding:0px 10px 0px;  font-size:14px; line-height:20px; font-weight:bold; color:#333333; text-align:center;">
                                     QUICK LINKS -
                                     {{ meta.publicationDate }}
+
                                 </td>
                             </tr>
 
@@ -349,65 +350,30 @@
                     <td style="padding:20px; text-align:left;">
 
                         <table class="MobileTOC" cellpadding="0" cellspacing="0" border="0" align="left" width="45%">
+                            {{#each quickLinks.left}}
                             <tr>
-                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
-                                                                                                              "https://insights.dice.com/2018/03/05/8-early-career-lessons-cios-mistakes-avoid/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
-                                                                                                      RILT="TOC1"
-                                                                                                      target="_blank"
-                                                                                                      style="text-decoration:none; color:#006699;">
-                                    8 Career Lessons from CIOs (and Mistakes to Avoid)
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
-                                                                                                              "https://insights.dice.com/2018/03/01/self-employment-spike-hard-study/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
-                                                                                                      RILT="TOC2"
-                                                                                                      target="_blank"
-                                                                                                      style="text-decoration:none; color:#006699;">
-                                    Self-Employment is About to Spike Hard: Study
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
-                                                                                                              "https://insights.dice.com/2018/03/06/5-worst-programming-languages-learn-2018/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
-                                                                                                      RILT="TOC3"
-                                                                                                      target="_blank"
-                                                                                                      style="text-decoration:none; color:#006699;">
-                                    5 Worst Programming Languages to Learn in 2018
-                                </a></td>
-                            </tr>
+                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;">
+                                    <a href="{{ this.articleUrl }}/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor" RILT="TOC1" target="_blank" style="text-decoration:none; color:#006699;">{{ this.title }}
+                                </a>
+                                </td>
 
+                            </tr>
+                            {{/each}}
                         </table>
 
 
                         <table class="MobileTOC" cellpadding="0" cellspacing="0" border="0" align="right" width="45%">
-                            <tr>
-                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
-                                                                                                              "https://insights.dice.com/2018/03/01/hackterms-urban-dictionary-tech-pros/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
-                                                                                                      RILT="TOC4"
-                                                                                                      target="_blank"
-                                                                                                      style="text-decoration:none; color:#006699;">
-                                    Hackterms is Like Urban Dictionary for Tech Pros, and It's Awesome
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
-                                                                                                              "https://insights.dice.com/2018/03/05/5-ways-catch-handle-errors-desktop-web-apps/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
-                                                                                                      RILT="TOC5"
-                                                                                                      target="_blank"
-                                                                                                      style="text-decoration:none; color:#006699;">
-                                    5 Ways to Catch and Handle Errors in Desktop and Web Apps
-                                </a></td>
-                            </tr>
-                            <tr>
-                                <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;"><a href=
-                                                                                                              "https://insights.dice.com/2018/03/05/google-offering-crash-course-in-machine-learning/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
-                                                                                                      RILT="TOC6"
-                                                                                                      target="_blank"
-                                                                                                      style="text-decoration:none; color:#006699;">
-                                    Google Offering Crash Course in Machine Learning
-                                </a></td>
-                            </tr>
+                            {{#each quickLinks.right}}
+                                <tr>
+                                    <td style="padding:5px 0px 5px; font-size:16px; line-height:24px;">
+                                        <a href="{{ this.articleUrl }}/?CMPID=EM_RE_UP_JS_AD_DA_CP_&utm_source=Responsys&utm_medium=Email&utm_content=&utm_campaign=Advisory_DiceAdvisor"
+                                           RILT="TOC1" target="_blank"
+                                           style="text-decoration:none; color:#006699;">{{ this.title }}
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            {{/each}}
 
                         </table>
 
@@ -466,7 +432,6 @@
                 <tr>
                     <td class="zeropadding" style="padding:10px">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%">
-
                             {{#each articles}}
                                 <!--Headline n-->
                                 <tr>

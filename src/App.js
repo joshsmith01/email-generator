@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import logo from './dice_logo.svg';
 import './App.css';
 import Footer from './Footer';
@@ -10,7 +11,19 @@ import $ from 'jquery';
 import 'foundation-sites';
 import Article from "./Article";
 
-// import AddArticleForm from './AddArticleForm';
+const SortableItem = SortableElement(({value}) =>
+    <li>{value}</li>
+);
+const SortableList = SortableContainer(({items}) => {
+    return (
+        <ul>
+            {items.map((value, index) => (
+                <SortableItem key={`item-${index}`} index={index} value={value}/>
+            ))}
+        </ul>
+    );
+});
+
 
 // Use this. It's better. -JMS
 // https://stackoverflow.com/questions/42316604/how-to-implement-a-dynamic-form-with-controlled-components-in-react-js
@@ -36,11 +49,11 @@ class App extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleAnalyticsChange = this.handleAnalyticsChange.bind(this);
     }
-
     createUI() {
-
         return this.state.articles.map((el, i) =>
-            <Article key={i} index={i} handleChange={this.handleChange} removeClick={this.removeClick} valueState={this.state.articles}/>
+            <Article key={i} index={i} handleChange={this.handleChange} removeClick={this.removeClick}
+                     valueState={this.state.articles}/>
+
         )
     }
 
@@ -131,6 +144,7 @@ class App extends Component {
                             <ImageData {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
                         </div>
                         <div className="tabs-panel is-active" id="panel4">
+
                             <EmailMetaData {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
                             <form onSubmit={this.handleSubmit}>
                                 <div className="grid-container">
