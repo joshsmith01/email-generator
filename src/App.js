@@ -65,7 +65,6 @@ class App extends Component {
         let newVal = {[id]: value};
         // Take a copy of the articles object in the current state
         let articlesCopy = articles[i];
-        console.log(articlesCopy);
         // Spread the the new value into the old value.
         articles[i] = {...articlesCopy, ...newVal};
         // Set the state again
@@ -101,6 +100,7 @@ class App extends Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         fetch('http://localhost:5000/article', {
             method: 'POST',
             headers: {
@@ -130,8 +130,8 @@ class App extends Component {
                         <li className="tabs-title"><a href="#panel1" aria-selected="true">Analytics</a></li>
                         <li className="tabs-title"><a data-tabs-target="panel2" href="#panel2">Banner Ad</a></li>
                         <li className="tabs-title"><a data-tabs-target="panel3" href="#panel3">Image Data</a></li>
-                        <li className="tabs-title is-active"><a data-tabs-target="panel4" href="#panel4">Email Information</a>
-                        </li>
+                        <li className="tabs-title is-active"><a data-tabs-target="panel4" href="#panel4">Email Information</a></li>
+                        <li className="tabs-title is-active"><a href="http://localhost:3000/dist/test.html">Preview</a></li>
                     </ul>
                     <div className="tabs-content" data-tabs-content="example-tabs">
                         <div className="tabs-panel" id="panel1">
@@ -155,6 +155,9 @@ class App extends Component {
                                     <input className='button' type="submit" value="Submit Form"/>
                                 </div>
                             </form>
+                        </div>
+                        <div className="tabs-panel" id="panel5">
+                            <ImageData {...this.state.meta} handleTheChange={this.handleAnalyticsChange}/>
                         </div>
                     </div>
                 </section>

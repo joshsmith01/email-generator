@@ -22,5 +22,6 @@ yarn-error.log*
 
 # App Specifics
 /src/temp-dist/*
+/public/dist/*
 
 /.idea/email-generator.iml

@@ -47,7 +47,7 @@ app.post('/article', function (req, res) {
         const arr = Object.keys(articles).map(key => articles[key]);
         const arrCount = arr.length;
 
-        const mid = Math.ceil(arrCount/2);
+        const mid = Math.ceil(arrCount / 2);
         const quickLinks = {
             left: arr.slice(0, mid),
             right: arr.slice(mid)
@@ -76,13 +76,23 @@ app.post('/article', function (req, res) {
         let result = template(data);
 
 
-        fse.writeFile("src/temp-dist/test.html", result, function (err) {
+        fse.writeFile("public/dist/test.html", result, function (err) {
             if (err) {
                 return console.log(err);
             }
         });
 
-
+        let file = "public/dist/test.html";
+        res.download(file, function (err) {
+            if (err) {
+                // Handle error, but keep in mind the response may be partially-sent
+                // so check res.headersSent
+                console.log(err);
+            } else {
+                // decrement a download credit, etc.
+                console.log("Did it download? ");
+            }
+        });
     }
 );
 
